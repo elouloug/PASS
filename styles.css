@@ -1,0 +1,588 @@
+:root {
+  --bg: #F5F1EA;
+  --bg-alt: #EDE7DC;
+  --ink: #14181F;
+  --ink-soft: #4A5160;
+  --rule: #D5CDBE;
+  --accent: #8B3A2C;
+  --accent-soft: #B8623A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Geist', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+a { color: inherit; }
+
+/* ============ NAV ============ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245, 241, 234, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 40px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* ============ HERO (HOMEPAGE) ============ */
+.hero {
+  padding: 140px 0 120px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  max-width: 14ch;
+  margin-bottom: 40px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero p.lede {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+/* ============ PRACTICE PAGE HERO ============ */
+.practice-hero {
+  padding: 110px 0 90px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.breadcrumb {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 30px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  transition: color 0.2s;
+}
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { color: var(--ink); }
+
+.practice-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  max-width: 18ch;
+  margin-bottom: 32px;
+}
+
+.practice-hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.practice-hero p.lede {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 64ch;
+}
+
+/* ============ SECTIONS ============ */
+.section {
+  padding: 110px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  margin-bottom: 70px;
+}
+
+.section-head h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 12ch;
+}
+
+.section-head .intro {
+  color: var(--ink-soft);
+  font-size: 18px;
+  line-height: 1.65;
+  max-width: 58ch;
+}
+
+/* ============ SERVICES (HOMEPAGE) ============ */
+.service {
+  display: grid;
+  grid-template-columns: 80px 1.1fr 2fr 40px;
+  gap: 40px;
+  padding: 38px 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.3s ease, background 0.3s ease;
+}
+
+.service:last-of-type { border-bottom: 1px solid var(--rule); }
+
+.service:hover {
+  padding-left: 16px;
+  background: linear-gradient(90deg, var(--bg-alt) 0%, transparent 100%);
+}
+
+.service:hover .service-title { color: var(--accent); }
+.service:hover .service-arrow { transform: translateX(6px); color: var(--accent); }
+
+.service-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--accent);
+}
+
+.service-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.service-desc {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.service-arrow {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  color: var(--ink-soft);
+  text-align: right;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* ============ APPROACH PILLARS ============ */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.pillar-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.pillar h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 22px;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.pillar p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ============ PRACTICE PAGE: OVERVIEW BLOCK ============ */
+.overview {
+  padding: 90px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+}
+
+.overview h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 12ch;
+}
+
+.overview .prose p {
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.75;
+  margin-bottom: 22px;
+  max-width: 62ch;
+}
+
+.overview .prose p:last-child { margin-bottom: 0; }
+
+.overview .prose strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ============ ENGAGEMENTS LIST (PRACTICE PAGES) ============ */
+.engagements {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-alt);
+}
+
+.engagements .section-head h2,
+.section-head h2 { color: var(--ink); }
+
+.engagement {
+  display: grid;
+  grid-template-columns: 80px 1.2fr 2fr;
+  gap: 40px;
+  padding: 34px 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.engagement:last-child { border-bottom: 1px solid var(--rule); }
+
+.engagement-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.engagement-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.engagement-desc {
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+/* ============ CTA BLOCK (PRACTICE PAGE FOOTER) ============ */
+.cta-block {
+  padding: 110px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cta-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+
+.cta-block h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+  margin: 0 auto 36px;
+}
+
+.cta-block h2 em { font-style: italic; color: var(--accent); }
+
+.cta-button {
+  display: inline-block;
+  padding: 16px 42px;
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition: background 0.2s;
+}
+
+.cta-button:hover { background: var(--accent); }
+
+/* ============ LEADERSHIP ============ */
+.leadership {
+  background: var(--bg-alt);
+  padding: 100px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.lead-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.lead-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
+.lead-head {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 38px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 12ch;
+}
+
+.lead-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 42px;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.lead-role {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 19px;
+  margin-bottom: 28px;
+}
+
+.lead-bio {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+/* ============ CONTACT ============ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.contact-info p {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 44ch;
+}
+
+.contact-meta {
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+}
+
+.contact-meta > div { margin-bottom: 18px; }
+
+.contact-meta .label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+.contact-meta .value {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: var(--ink);
+}
+
+/* ============ FORM ============ */
+.form-field { margin-bottom: 26px; }
+
+.form-field label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus { border-bottom-color: var(--accent); }
+
+.form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit {
+  margin-top: 8px;
+  padding: 16px 36px;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit:hover { background: var(--accent); }
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 50px 0;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  max-width: 1240px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: rgba(245, 241, 234, 0.6);
+  letter-spacing: 0.02em;
+}
+
+.brand-foot {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: var(--bg);
+  letter-spacing: -0.01em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 860px) {
+  .container { padding: 0 24px; }
+  .nav-inner { padding: 18px 24px; }
+  .nav-links { gap: 18px; }
+  .nav-links a { font-size: 11px; letter-spacing: 0.04em; }
+  .hero { padding: 80px 0 70px; }
+  .practice-hero { padding: 60px 0 60px; }
+  .section, .engagements { padding: 70px 0; }
+  .overview { padding: 60px 0; }
+  .overview-grid { grid-template-columns: 1fr; gap: 24px; }
+  .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+  .service { grid-template-columns: 40px 1fr 30px; gap: 16px; padding: 28px 0; }
+  .service-desc { grid-column: 2 / 4; }
+  .engagement { grid-template-columns: 40px 1fr; gap: 16px; padding: 26px 0; }
+  .engagement-desc { grid-column: 2; }
+  .approach-grid { grid-template-columns: 1fr; gap: 40px; }
+  .lead-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .leadership, .cta-block { padding: 70px 0; }
+  .footer-inner { flex-direction: column; gap: 14px; padding: 0 24px; text-align: center; }
+}
